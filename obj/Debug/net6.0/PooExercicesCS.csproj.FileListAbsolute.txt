@@ -1,0 +1,15 @@
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.csproj.AssemblyReference.cache
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.AssemblyInfoInputs.cache
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.AssemblyInfo.cs
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.csproj.CoreCompileInputs.cache
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\bin\Debug\net6.0\PooExercicesCS.exe
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\bin\Debug\net6.0\PooExercicesCS.deps.json
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\bin\Debug\net6.0\PooExercicesCS.runtimeconfig.json
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\bin\Debug\net6.0\PooExercicesCS.dll
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\bin\Debug\net6.0\PooExercicesCS.pdb
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.dll
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\refint\PooExercicesCS.dll
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.pdb
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\PooExercicesCS.genruntimeconfig.cache
+C:\Users\joao6\Documents\game_programmation\PooExercicesCS\obj\Debug\net6.0\ref\PooExercicesCS.dll
