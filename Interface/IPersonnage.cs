@@ -7,7 +7,7 @@ namespace PooExercicesCS.Interface
     {
         string Name { get; set; }
         Statistique Stats { get; }
-
+        IClassPersonnage PersonnageClass { get; set; }
         void AddCapacity(ICapacity capacity);
         void UseCapacity<T>(IPersonnage target) where T : class, ICapacity;
         void attack(IPersonnage target);

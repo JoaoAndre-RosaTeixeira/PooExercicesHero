@@ -8,8 +8,9 @@ namespace PooExercicesCS.Class
     public class Personnage<T> : IPersonnage where T : IClassPersonnage, new()
     {
         public string Name { get; set; }
-        public T PersonnageClass { get; }
         public Statistique Stats { get; private set; }
+        public IClassPersonnage PersonnageClass { get; set; }
+
         public Dictionary<Type, ICapacity> Capacities = new Dictionary<Type, ICapacity>();
 
         public Personnage(string name) 
