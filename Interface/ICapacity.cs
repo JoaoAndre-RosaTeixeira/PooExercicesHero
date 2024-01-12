@@ -7,6 +7,6 @@ namespace PooExercicesCS.Interface
         string CapacityName { get; set; }
         double PowerUp { get; set; }
 
-        void Executer(IPersonnage user, IPersonnage target);
+        void Executer(IPersonnage user, IPersonnage target );
     }
 }

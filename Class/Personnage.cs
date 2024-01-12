@@ -1,4 +1,5 @@
-﻿using PooExercicesCS.Interface;
+﻿using PooExercicesCS.Enum;
+using PooExercicesCS.Interface;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -10,29 +11,57 @@ namespace PooExercicesCS.Class
         public string Name { get; set; }
         public Statistique Stats { get; private set; }
         public IClassPersonnage PersonnageClass { get; set; }
+        public Etats Etats { get; set; }
 
         public Dictionary<Type, ICapacity> Capacities = new Dictionary<Type, ICapacity>();
 
         public Personnage(string name) 
         {   
             Name = name;
+            Etats = Etats.Alive;
             PersonnageClass = new T();
             Stats = PersonnageClass.Stats;
+            Stats.MaxLife = Stats.Life;
+            Stats.MaxMana = Stats.Mana;
         }
 
 
         public virtual void attack(IPersonnage target)
         {
-            int powerDamage = Stats.Force;
-            Console.WriteLine($"{Name} attaque {target.Name} et lui inflige {powerDamage} points de dégâts.");
-            target.getDamage(powerDamage);
+            if (Etats != Etats.Die) { 
+                int powerDamage = Stats.Power;
+                Console.WriteLine($"{Name} attaque {target.Name} et lui inflige {powerDamage} points de dégâts.");
+                target.getDamage(powerDamage);
+            }
         }
 
         public virtual int getDamage(int degats)
         {
-            int degatsReduits = Math.Max(0, degats - Stats.Defense);
-            Stats.Life -= degatsReduits;
-            return degatsReduits;
+            if (!isDie())
+            {
+
+                int degatsReduits = Math.Max(0, degats - Stats.Defense);
+                
+                Stats.Life = Math.Max(0, Stats.Life - degatsReduits);
+                return degatsReduits;
+            } else 
+            {
+                return 0;
+            }
+        }
+
+        public bool isDie()
+        { 
+            if (Stats.Life <= 0) 
+            { 
+                Etats = Etats.Die;
+                Console.WriteLine($"{Name} est mort.");
+                return true;
+            }
+            else
+            {
+                return false;
+            }        
         }
 
         public void AddCapacity(ICapacity capacity)
@@ -63,14 +92,20 @@ namespace PooExercicesCS.Class
 
         public void setLife(int health)
         {
-            Stats.Life += health;
+            if (Stats.Life < Stats.MaxLife)
+            {
+                Stats.Life = Math.Min(Stats.MaxLife, Stats.Life + health);
+            }
         }
         public void getLife()
         {
-            Console.WriteLine($"{Name} n'as plus que {Stats.Life} points de vie");
+            Console.WriteLine($"{Name} a {Stats.Life} points de vie");
         }
 
-        
+        public void setPower(int boost)
+        {
+            Stats.Power += boost;
+        }
     }
 
 
@@ -82,10 +117,12 @@ namespace PooExercicesCS.Class
         {
             Stats = new()
             {
-                Life = 20,
+                Life = 35,
                 Defense = 7,
-                Force = 10,
-                Magie = 1
+                Power = 13,
+                Magie = 1,
+                Mana = 3,
+                Wisom = 2
             };
 
         }
@@ -98,10 +135,12 @@ namespace PooExercicesCS.Class
         {
             Stats = new()
             {
-                Life = 15,
+                Life = 20,
                 Defense = 5,
-                Force = 10,
-                Magie = 13
+                Power = 10,
+                Magie = 13,
+                Mana = 10,
+                Wisom = 4
             };
 
         }
@@ -114,12 +153,51 @@ namespace PooExercicesCS.Class
         {
             Stats = new()
             {
-                Life = 20,
+                Life = 25,
                 Defense = 4,
-                Force = 10,
-                Magie = 8
+                Power = 10,
+                Magie = 6,
+                Mana = 10,
+                Wisom = 12
             };
 
         }
+    }
+
+    public class DemonLord : IClassPersonnage
+    {
+        public string ClassName { get; set; } = "Roi Démon";
+        public Statistique Stats { get; set; }
+        public DemonLord()
+        {
+            Stats = new()
+            {
+                Life = 80,
+                Defense = 10,
+                Power = 10,
+                Magie = 10,
+                Mana = 10,
+                Wisom = 10
+            };
+        }
+
+    }
+    public class Bard : IClassPersonnage
+    {
+        public string ClassName { get; set; } = "Bard";
+        public Statistique Stats { get; set; }
+        public Bard()
+        {
+            Stats = new()
+            {
+                Life = 40,
+                Defense = 7,
+                Power = 7,
+                Magie = 8,
+                Mana = 10,
+                Wisom = 8
+            };
+        }
+
     }
 }

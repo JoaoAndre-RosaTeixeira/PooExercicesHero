@@ -1,4 +1,5 @@
 ﻿using PooExercicesCS.Class;
+using PooExercicesCS.Enum;
 using System.Collections.Generic;
 
 namespace PooExercicesCS.Interface
@@ -7,6 +8,7 @@ namespace PooExercicesCS.Interface
     {
         string Name { get; set; }
         Statistique Stats { get; }
+        Etats Etats { get; }
         IClassPersonnage PersonnageClass { get; set; }
         void AddCapacity(ICapacity capacity);
         void UseCapacity<T>(IPersonnage target) where T : class, ICapacity;
@@ -15,7 +17,8 @@ namespace PooExercicesCS.Interface
         void setDefense(int boostDefense);
         void setMagie(int boost);
         void setLife(int health);
+        bool isDie();
         void getLife();
-       
+        void setPower(int boost);
     }
 }
